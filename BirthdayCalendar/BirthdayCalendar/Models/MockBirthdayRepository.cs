@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BirthdayCalendar.Models
 {
-    public class MockBirthdaysRepository : IBirthdayRepository
+    public class MockBirthdayRepository : IBirthdayRepository
     {
         private DateTime today = new DateTime(2021, 12, 16);
         public IEnumerable<Birthday> GetAllBirthdays()
