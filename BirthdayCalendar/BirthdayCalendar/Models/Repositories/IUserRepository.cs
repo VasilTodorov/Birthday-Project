@@ -1,6 +1,8 @@
 ﻿namespace BirthdayCalendar.Models.Repositories
 {
-    public class IUserRepository
+    public interface IUserRepository
     {
+        IEnumerable<User> GetAllUsers();
+        User? GetUserById(int id);
     }
 }
