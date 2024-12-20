@@ -18,6 +18,17 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+using (var scope = app.Services.CreateScope())
+{
+    //why
+    //BethanysPieShopDbContext context = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BethanysPieShopDbContext>();
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<BirthdayCalendarDbContext>();
+    DbInitializer.Seed(context);
+}
+
 app.UseStaticFiles();
 
 // Not needed but by conventions will be left!!

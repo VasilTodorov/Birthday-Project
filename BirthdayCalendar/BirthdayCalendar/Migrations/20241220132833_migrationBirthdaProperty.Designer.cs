@@ -4,6 +4,7 @@ using BirthdayCalendar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirthdayCalendar.Migrations
 {
     [DbContext(typeof(BirthdayCalendarDbContext))]
-    partial class BirthdayCalendarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241220132833_migrationBirthdaProperty")]
+    partial class migrationBirthdaProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +78,7 @@ namespace BirthdayCalendar.Migrations
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("BirthdayEventId")
+                    b.Property<int>("BirthdayEventId")
                         .HasColumnType("int");
 
                     b.Property<string>("EmailAddress")
@@ -94,8 +97,7 @@ namespace BirthdayCalendar.Migrations
                     b.HasKey("UserId");
 
                     b.HasIndex("BirthdayEventId")
-                        .IsUnique()
-                        .HasFilter("[BirthdayEventId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -105,7 +107,8 @@ namespace BirthdayCalendar.Migrations
                     b.HasOne("BirthdayCalendar.Models.Event", "BirthdayEvent")
                         .WithOne("User")
                         .HasForeignKey("BirthdayCalendar.Models.User", "BirthdayEventId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("BirthdayEvent");
                 });
