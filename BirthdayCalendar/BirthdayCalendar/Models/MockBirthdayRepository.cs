@@ -10,10 +10,10 @@ namespace BirthdayCalendar.Models
         {
             return new List<Birthday>
             {
-                new Birthday {BirthdayId = 1, FirstName="Galin", LastName="Todorov", Date= new DateTime(1988, 12, 16) },
+                new Birthday {BirthdayId = 1, FirstName="Galin", LastName="Todorov", Date= new DateTime(1988, 12, 23) },
                 new Birthday {BirthdayId = 2, FirstName="Vasil", LastName="Todorov", Date= new DateTime(2001, 8, 6) },
-                new Birthday {BirthdayId = 3, FirstName="Ivan", LastName="Todorov", Date= new DateTime(1964, 4, 5) },
-                new Birthday {BirthdayId = 4, FirstName="Antlaneta", LastName="Todorov", Date= new DateTime(1966, 12, 22) },
+                new Birthday {BirthdayId = 3, FirstName="Ivan", LastName="Todorov", Date= new DateTime(1964, 4, 21) },
+                new Birthday {BirthdayId = 4, FirstName="Antoaneta", LastName="Todorova", Date= new DateTime(1966, 12, 26) },
             };
         }
 
