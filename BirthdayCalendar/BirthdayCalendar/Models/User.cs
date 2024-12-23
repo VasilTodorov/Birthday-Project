@@ -9,9 +9,9 @@
         public string? PhoneNumber { get; set; }
         public DateTime Birthday { get; set; }
         // Foreign Key for Birthday Event
-        public int? BirthdayEventId { get; set; }
+        //public int? BirthdayEventId { get; set; }
 
         // Navigation Property
-        public Event? BirthdayEvent { get; set; } = default!;
+        public List<Event>? Events { get; set; } = default!;
     }
 }
